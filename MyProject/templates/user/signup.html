@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<style>
+    .divb{
+    background:url("{% static 'images/womens.jpg' %}");
+        background-size:100% 100%;
+        background-attachment:fixed;
+    }
+</style>
+<div class="row divb ">
+    <div class="col-sm-12 ">
+       <!-- <img src="{% static 'images/img4.jpg'%}"/> -->
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+        <div class="row mx-4 my-5"  >
+            <div class="col-sm-3 "></div>
+
+            <div class="col-sm-6  px-5 py-2 border border-1 border-dark" style="background:#f5e3df; border-radius:10px;">
+                <div class="fs-3 text-center  ">REGISTER<B class="text-ocolor"> HERE <i class="fa-solid fa-bounce fa-user-plus"></i></i> </B></div>
+                 {% if m %}
+                <div class="alert alert-success">Account Created Successfully..</div>
+                {% endif %}
+                <b><label class="mb-0 ">Your Full Name :</label></b>
+                <div class="input-group">
+                    <i class="input-group-text"><i class="fa-solid fa-user"></i></i>
+                <input type="text" name="name" class="form-control" placeholder="Enter Your Full name.." required title="Enter your name (Only valid name acceptable.)"/>
+                </div>
+                <b><label class="mb-0">Mobile No :</label></b>
+                <div class="input-group">
+                    <i class="input-group-text"><i class="fa-solid fa-phone"></i></i>
+                    <input type="number" name="mob" class="form-control" placeholder="Enter Mobile No." required title="Enter your mobile no (Only valid number acceptable.)"/>
+                </div>
+                <b><label class="mb-0 ">Enter Your Email :</label></b>
+                <div class="input-group">
+                    <i class="input-group-text"><i class="fa-solid fa-envelope"></i></i>
+                <input type="email" name="email" class="form-control" placeholder="Enter your Email.." required title="Enter your Email (Only valid email acceptable.)"/>
+                </div>
+                <b><label class="mb-0 ">Enter Your Password :</label></b>
+                <div class="input-group">
+                    <i class="input-group-text"><i class="fa-solid fa-lock"></i></i>
+                    <input type="password" name="passwd" class="form-control" placeholder="Enter your password.." required title="Enter your password (Only valid password acceptable.)"/>
+                </div>
+                    <b><label class="mb-0 ">Upload Your Picture:</label></b>
+                <input type="file" name="ppic" class="form-control"  required />
+                <b><label class="mb-0 ">Address:</label></b><br>
+                <textarea required name="address" class="w-100"></textarea><br>
+                <input type="checkbox" required > I agree all statements in Terms of service <br><br>
+                <input type="submit" value="Sign Up" class="btn btn-warning w-100"/>
+                <p class="text-center">Have already an account ?<a href="/user/signin/">Login here</a></p></div>
+            <div class="col-sm-3 "></div>
+        </div>
+            </form>
+    </div>
+</div>
+
+{% endblock %}

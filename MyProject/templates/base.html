@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link href="{% static 'images/logo1.png' %}" rel="icon">
+    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet"/>
+    <link href="{% static 'css/all.css'%}" rel="stylesheet"/>
+    <script src="{% static 'js/bootstrap.js'%}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js'%}"></script>
+    <style>
+        .bg-bcolor
+        {
+        background:#2b2f5e;
+        }
+        .bg-ocolor
+        {
+        background:#FF8800;
+        }
+        .text-ocolor
+        {
+        color:#ff8800;
+        }
+        #menu ul li a
+        {
+        color:white;
+        }
+        #menu ul li a:hover
+        {
+        background:#FF8800;
+        border-radius:5px;
+
+        }
+        .ufooter
+        {
+        min-height:250px;
+        border-bottom:1px solid white;
+        }
+        .bfooter
+        {
+        min-height:50px;
+        font-size:22px;
+        text-align:center;
+        line-height:50px;
+        color:white;
+        }
+        .bfooter a
+        {
+        text-decoration:none;
+        }
+        .bfooter a:hover
+        {
+        color:white;
+        }
+        .w
+        {
+        background:url("{% static 'images/womens.jpg' %}");
+        background-size:100% 100%;
+        min-height:300px;
+        padding-top:150px;
+        }
+        .m
+        {
+        background:url("{% static 'images/mens.jpg' %}");
+        background-size:100% 100%;
+        min-height:300px;
+        padding-top:150px;
+
+        }
+        .k
+        {
+        background:url("{% static 'images/kids.jpg' %}");
+        background-size:100% 100%;
+        min-height:300px;
+        padding-top:150px;
+        }
+        .btn1
+        {
+        background:#ff8800;
+
+        }
+        .product
+        {
+        min-height:500px;
+        }
+        .sale
+        {
+        background:url("{% static 'images/bigsale2.jpg' %}");
+         background-size:100% 100%;
+         min-height:300px;
+        }
+        .brad{
+                box-shadow: px 0px 5px #fff3c3;
+                border-top:  10px solid #fff3c3;
+                border-bottom: 10px solid #fff3c3;
+                border-left: 10px solid #fff3c3;
+                border-right: 10px solid #fff3c3;
+                background-position: center;
+                box-decoration-break: slice;
+                box-shadow: 5px 0px 10px #888888;
+                }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row  text-dark text-center">
+        <div class="col-sm-4">
+            <i class="fa-solid fa-spin fa-phone text-info "></i>
+            <b>+91, 6390288680 || 8917033564 </b>
+        </div>
+        <div class="col-sm-4">
+            <b>Welcome to Fav Cart </b> <b class="text-ocolor ">India</b>
+            <i class="fa-solid fa-cart-arrow-down  text-ocolor"></i>
+        </div>
+        <div class="col-sm-4">
+            <i class="fa-brands fa-facebook text-primary "></i> &nbsp;
+            <i class="fa-brands fa-youtube text-danger "></i> &nbsp;
+            <i class="fa-brands fa-square-twitter text-primary "></i>&nbsp;
+            <i class="fa-brands fa-instagram text-danger "></i>&nbsp;
+        </div>
+    </div>
+    <div class="row header py-3 text-center">
+        <div class="col-sm-4 fs-2 text-center">
+           <img src="{% static 'images/logo1.png'%}" style="max-height:40px;"> FavCart<b class="text-ocolor"> India
+            <i class="fa-solid fa-bounce fa-cart-arrow-down"></i></b>
+        </div>
+        <div class="col-sm-4 pt-2">
+             <div class="input-group">
+                <input type="text" class="form-control" placeholder="search..." required>
+                <i class="input-group-text bg-ocolor text-light"><i class="fa-solid fa-magnifying-glass"></i></i>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <a href="/user/showcart/" class="btn bg-ocolor">
+                Cart<i class="fa-solid fa-cart-arrow-down"></i>
+
+                <b class="badge bg-dark">
+                    {{cart}}
+                </b>
+
+            </a>
+             {% if request.session.userid %}
+            <b>{{request.session.userid}}</b>
+            <img src="/{{request.session.userpic}}" style="max-height:50px" class="img-thumbnail"/>
+            {% else %}
+            <b>Guest user</b>
+            <img src="{% static 'profile/1.jpg' %}" style="max-height:50px" class="img-thumbnail"/>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row menu " style="min-height:45px; background:#616161;">
+        <div class="col-sm-2"></div>
+        <!---this is a menu----->
+        <div class="col-sm-8">
+        <!---start menu---->
+            <nav class="navbar navbar-expand-lg " id="menu">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/user/index/"><i class="fa-solid fa-house"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/about/"><i class="fa-solid fa-circle-info"></i> About Us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           <i class="fa-brands fa-product-hunt"></i> Product
+          </a>
+          <ul class="dropdown-menu" style="background:#616161;">
+            <li><a class="dropdown-item text-light" href="/user/mens/"><i class="fa-solid fa-person"></i> Men's</a></li>
+            <li><a class="dropdown-item text-light" href="/user/womens/"><i class="fa-solid fa-child-dress"></i> Women's</a></li>
+            <li><a class="dropdown-item text-light" href="/user/kids/"><i class="fa-solid fa-child-dress"></i> Kid's</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/user/myorder/"><i class="fa-solid fa-cart-arrow-down"></i> My Orders</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link "href="/user/enquiry/"><i class="fa-solid fa-location-dot"></i> Enquiry</a>
+        </li><li class="nav-item">
+          <a class="nav-link " href="/user/signup/"><i class="fa-solid fa-user-plus"></i> Sign Up</a>
+        </li>
+          {% if request.session.userid %}
+          <li class="nav-item">
+          <a class="nav-link " href="/user/signout/"><i class="fa-solid fa-arrow-right-to-bracket"></i> Signout</a>
+        </li>
+          {% else %}
+
+          <li class="nav-item">
+          <a class="nav-link " href="/user/signin/"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In</a>
+        </li>
+          {% endif %}
+          <li class="nav-item">
+          <a class="nav-link " href="/user/myprofile/"><i class="fa-solid fa-address-card"></i>  My Profile</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+        <!---end menu---->
+        </div>
+
+
+        <div class="col-sm-2"></div>
+    </div>
+
+    <div class="row product">
+        <div class="col-sm-12">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+    </div>
+
+
+    <!-----this is upfooter----->
+    <div class="row ufooter bg-bcolor border-1">
+        <div class="col-sm-4 text-light px-5 pt-5">
+       <b class="fs-5"> FavCart</b><b class="text-ocolor fs-5"> India
+            <i class="fa-solid fa-cart-arrow-down"></i></b><br><br>
+            <b>Address:Lakhimpur,Uttar Pradesh 262903</b><br><br>
+            <b>Phone: +91 6390288680</b><br><br>
+            <b>Email: ramniwas.cse@gmail.com</b>
+        </div>
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-6 text-light px-5 py-5">
+                    <b class="fs-5 ">Information</b><br><br>
+                    <i class="fa-solid fa-chevron-right text-primary"></i> <b>About Us</b><br><br>
+                    <i class="fa-solid fa-chevron-right text-primary"></i> <b>Checkout</b><br><br>
+                    <i class="fa-solid fa-chevron-right text-primary"></i> <b>Contact Us</b><br><br>
+                </div>
+                <div class="col-sm-6 text-light px-5 py-5">
+                     <b class="fs-5">My Account</b><br><br>
+                    <i class="fa-solid fa-chevron-right text-primary"></i> <b>Shopping cart</b><br><br>
+                    <i class="fa-solid fa-chevron-right text-primary"></i> <b>Contact </b><br><br>
+                    <i class="fa-solid fa-chevron-right text-primary "></i> <b>Visit Us</b>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 text-light px-5 py-5">
+             <b class="fs-5">Join Our Newsletter Now</b><br><br>
+            <b>Get : Email update about our latets shop and spaciol offer</b><br><br>
+             <div class="input-group">
+                <input type="email" class="form-control" placeholder="Enter Your Email.">
+                <i class="input-group-text bg-ocolor text-light">SUBSCRIBE</i></i>
+            </div>
+        </div>
+    </div>
+    <!-----this is bfooter----->
+
+    <div class="row bfooter bg-bcolor ">
+        <div class="col-sm-6">
+            Devoloped by : <a href="#" class="text-ocolor"><B class="fs-5">Aryan Goswami</B></a>
+        </div>
+        <div class="col-sm-6">
+            &copy; Copyright to : <a href="http://www.techpile.in" target="_blank" class="text-ocolor">techpile Technology pvt.ltd</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

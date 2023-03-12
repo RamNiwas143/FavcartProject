@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .btn:hover{
+        background:#e4087f;
+        color:white;
+    }
+    .seconddiv{
+    background:white;
+    border-radius:8px;
+    border:1px solid #dedede;
+    }
+    .formb
+    {
+    background:#f6e4e0;
+    }
+</style>
+<div class="fs-2 text-center py-3 bg-light">Contact With<B class="text-ocolor"> US <i class="fa-solid fa-location-dot"></i></B></div>
+<!---- start enquiry form--->
+<div class="container-fluid bg-light">
+    <p class="sectionContent text-center">
+       We will accomplish this by creating an environment that encourages and rewards <br> Our employees on reaching our full potential..</p>
+    <div class="container formb rounded pb-5 ps-5 pe-5 pt-3">
+        <div class="col text-center">
+
+        </div>
+        <div class="row ">
+            <div class="col-sm-7 py-4">
+                <h4 class="Heading ">Send Your Enquiry<b class="text-bcolor"> Message </b></h4>
+                    {% if m %}
+                    <div class="alert alert-success">YOUR MESSAGE SENT SUCCESSFULLY..</div>
+                    {% endif %}
+                    <form method="POST" >
+                        {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="mb-0 mt-3">Your Full Name :</label>
+                            <input type="text" name="name" class="form-control" placeholder="Enter Your Full name.." required title="Enter your name (Only valid name acceptable.)"/>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="mb-2 mt-2">Your Contact :</label>
+                            <input type="text" name="mob" class="form-control " placeholder="Enter Your Contact No.."   title="Enter your valid contact number" required/>
+                        </div>
+                        <div class="col-sm-12">
+                            <label class="mb-0 mt-3">Your Email Id :</label>
+                            <input type="email" name="email" class="form-control" placeholder="Enter Your Email.." title="Enter your email.." required/>
+                        </div>
+                        <div class="col-sm-12">
+                            <label class="mb-0 mt-3">Your Message :</label>
+                            <textarea class="form-control" rows="4" name="msg" placeholder="Type Your Enquiry Message .." required></textarea>
+                        </div>
+                        <div class="col-sm-12 mt-3 ">
+                            <input type="submit" class="btn text-dark border border-1 border-dark" name="submit" value="SEND MESSAGE" />
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-sm-5 mt-4 px-4 py-4 seconddiv my-4 ">
+                <div class="col contactLocation">
+                    <h4 class="divHeading">Contact <b class="text-bcolor ">Information</b></h4>
+                    <div class="contact">
+                        <i class="fas fa-map-marker-alt text-ocolor"></i>
+                        <strong class="text-ocolor">Main Office Address</strong>
+                        <p> <br>
+                            Dubaha,89 plot no 2 Nighasan<br />
+                            nighasan,lakhimpur Kheri<br />
+                            Uttar Pradesh 262903
+                        </p>
+                    </div>
+                    <div class="contact">
+                        <i class="fas fa-phone-alt text-ocolor"></i>
+                        <strong class="text-ocolor">Call Us</strong>
+                        <p>
+                            +91 6390288680
+                        </p>
+                    </div>
+                    <div class="contact">
+                        <i class="far fa-envelope text-ocolor"></i>
+                        <strong class="text-ocolor">Mail Us</strong>
+                        <p>
+                            ramniwas.cse@gmail.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!---- end enquiry---form---->
+<!----start map--->
+<!-- google map -->
+<div class="container-fluid my-5 bg-light">
+     <div class="fs-2 text-center pt-5">Find us on <b class="text-ocolor">Google Map <i class="fa-solid fa-location-dot"></i></b></div>
+    <p class="text-center">
+        find our address on google map easily
+    </p>
+    <div class="col">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.1588441496056!2d80.96423161504458!3d26.898453483133807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39995785d5f7f1a5%3A0xffa47f1efe103f0d!2sTechpile+Technology+Pvt.+Ltd.!5e0!3m2!1sen!2sin!4v1539247368696"  frameborder="0" height="300px" width="100%" style="border:0" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!----end map--->
+{% endblock %}

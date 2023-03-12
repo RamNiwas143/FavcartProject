@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Signin
+{% endblock %}
+{% block content %}
+<style>
+
+</style>
+
+<div class="row  " >
+
+    <div class="col-sm-2 "></div>
+    <div class="col-sm-4 mt-5 pt-4" style=" background:#f4e2de;" >
+            <div class="fs-2 text-center mb-4  " style="background:#fcfaed;border-radius:10px;">Login<B class="text-ocolor"> Here <i class="fa-solid fa-address-card"></i></B></div>
+        <form method="post">
+            {% csrf_token %}
+     <div class="input-group">
+                    <i class="input-group-text"><i class="fa-solid fa-envelope"></i></i>
+    <input type="email" class="form-control " required name="email" placeholder="email"> </div><br>
+
+         <div class="input-group">
+                    <i class="input-group-text"><i class="fa-solid fa-lock"></i></i>
+             <input type="password" class="form-control " required name="passwd" placeholder="password"></div><br>
+             <input type="submit" class="btn bg-ocolor text-white w-100 btn1 " value="Login" ><br>
+            <p class=" pt-2 text-center text-dark"> Don't have An Account <a href="/user/signup/">Register Here</a></p><br>
+
+</form>
+
+    </div>
+    <div class="col-sm-4 mt-5" style="background:#f4e2de;">
+         <div class="fs-5 text-center pt-5">This is a  <B class="text-ocolor"> Login form. <img style="max-height:30px;" src="{% static 'images/logo1.png' %}"/></B></div> <br>
+                    <b class="text-ocolor fs-5 text-center">favCart India</b> is the global online retail destination for style
+                    inspiration and discovery, offering women and men a curated selection of ready-to-wear
+                    customer service, fast, free shipping worldwide and free returns in the U.S. and Canada.
+                    favCart India is part of the Amazon.com Inc. group of companies.<br>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+
+
+{% endblock %}

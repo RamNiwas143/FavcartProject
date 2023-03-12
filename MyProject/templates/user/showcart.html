@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+{% if not request.session.userid %}
+<script>
+    alert('your have login first...')
+    location.href="/user/signin/"
+</script>
+{% endif%}
+<div class="fs-2 text-center py-2">Your Item In<B class="text-ocolor">Cart <i class="fa-solid fa-cart-shopping"></i></B></div>
+
+
+<table class=" table table-striped">
+    <tr>
+    <th> Product Picture</th>
+    <th> Price</th>
+    <th>After Discount</th>
+    <th>Size</th>
+    <th>Color</th>
+    <th> Product Delivery</th>
+    <th>Added Date</th>
+    <th>Delete</th>
+    <th>Order</th>
+    </tr>
+    {% for i in cdata %}
+    <tr>
+      <td><img src="/{{i.7}}" class="img-thumbnail" style="max-height:150px"/></td>
+      <td class="text-danger fw-bold">{{i.1}}</td>
+      <td class="text-success fw-bold">{{i.2}}</td>
+        <td><span class="btn bg-ocolor">{{i.3}}</span></td>
+      <td><div style="height:45px;width:45px;border-radius:3px;background:{{i.4}}"></div></td>
+      <td>{{i.6}}</td>
+        <td>{{i.15}}</td>
+        <td><a href="/user/showcart?msg={{i.11}}" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></a></td>
+        <td><a href="/user/showcart?cid={{i.11}}&pid={{i.13}}" class="btn btn-ocolor">Order Now</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+About Us
+{% endblock %}
+{% block content %}
+<style>
+    .a{
+        background:url("{% static 'images/about1.jpg' %}");
+        background-size:100% 100%;
+        min-height:400px;
+        background-size:cover;
+    }
+    .b{
+        font-size:40px;
+        padding-top:40px;
+        padding:10px;
+
+
+    }
+
+</style>
+<div class="fs-2 text-center ">About<B class="text-ocolor"> Us <i class="fa-solid fa-address-card"></i></B></div>
+
+<div class="container-fluid">
+    <div class="row " style="min-height:400px;">
+        <div class="col-sm-12 " >
+            <div class="row mx-4"  >
+                <div class="col-sm-6 a py-5  mt-4" >
+
+                </div>
+                <div class="col-sm-6 py-5 mt-4 text-center" style="background:#f2e0de;">
+                    <div class="fs-5 text-center ">Welcome To The <B class="text-ocolor"> favCart India <img style="max-height:30px;" src="{% static 'images/logo1.png' %}"/></B></div> <br>
+                    <b class="text-ocolor fs-5 text-center">favCart India</b> is the global online retail destination for style
+                    inspiration and discovery, offering women and men a curated selection of ready-to-wear
+                    & accessories from over 1,000 established and emerging designers. Debuting new arrivals,
+                    compelling editorial content, and style guidance daily, Shopbop provides best-in-class
+                    customer service, fast, free shipping worldwide and free returns in the U.S. and Canada.
+                    favCart India is part of the Amazon.com Inc. group of companies.<br>
+                    <b class="text-ocolor fs-5">For More Information Contact Me On Social Media</b><br>
+                    <b class="text-bcolor fs-5">Aryan Goswami</b><br>
+                    <i class="fa-brands fa-square-facebook text-primary b"></i>
+                    <i class="fa-brands fa-square-youtube text-danger b"></i>
+                    <a href="https://www.instagram.com/its_goswami_pandit/" target="_blank" ><i class="fa-brands fa-square-instagram text-danger b"></i></a>
+                    <i class="fa-brands fa-square-twitter text-primary b"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

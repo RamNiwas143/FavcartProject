@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if not request.session.userid %}
+<script>
+    alert('your have login first...')
+    location.href="/user/signin/"
+</script>
+{% endif%}
+<div class="fs-2 text-center py-2">Pending<B class="text-ocolor">Orders <i class="fa-solid fa-cart-shopping"></i></B></div>
+
+<table class=" table table-striped">
+    <tr>
+    <th>Order No</th>
+    <th> Product Picture</th>
+    <th> Price</th>
+    <th>After Discount</th>
+    <th>Size</th>
+    <th>Color</th>
+    <th> Product Delivery</th>
+    <th>Status</th>
+    <th>Order Date</th>
+    <th>Cancel</th>
+    </tr>
+    {% for i in pdata %}
+    <tr>
+      <td>{{i.11}}</td>
+      <td><img src="/{{i.7}}" class="img-thumbnail" style="max-height:150px"/></td>
+      <td class="text-danger fw-bold">{{i.1}}</td>
+      <td class="text-success fw-bold">{{i.2}}</td>
+        <td><span class="btn bg-ocolor">{{i.3}}</span></td>
+      <td><div style="height:45px;width:45px;border-radius:3px;background:{{i.4}}"></div></td>
+      <td>{{i.6}}</td>
+      <td>
+          <span class="btn btn-danger">{{i.14}}</span>
+      </td>
+        <td>{{i.15}}</td>
+        <td><a href="/user/myorder?oid={{i.11}}" class="btn btn-sm btn-danger">Cancel <i class="fa-solid fa-xmark"></i></a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<!--------------------start deliverd data--->
+
+<div class="fs-2 text-center py-2">Delivered<B class="text-ocolor">Orders <i class="fa-solid fa-cart-shopping"></i></B></div>
+<table class=" table table-striped">
+    <tr>
+    <th>Order No</th>
+    <th> Product Picture</th>
+    <th> Price</th>
+    <th>After Discount</th>
+    <th>Size</th>
+    <th>Color</th>
+    <th> Product Delivery</th>
+    <th>Status</th>
+    <th>Order Date</th>
+    </tr>
+    {% for i in ddata %}
+    <tr>
+      <td>{{i.11}}</td>
+      <td><img src="/{{i.7}}" class="img-thumbnail" style="max-height:150px"/></td>
+      <td class="text-danger fw-bold">{{i.1}}</td>
+      <td class="text-success fw-bold">{{i.2}}</td>
+        <td><span class="btn bg-ocolor">{{i.3}}</span></td>
+      <td><div style="height:45px;width:45px;border-radius:3px;background:{{i.4}}"></div></td>
+      <td>{{i.6}}</td>
+      <td>
+          <span class="btn btn-success">{{i.14}}</span>
+      </td>
+        <td>{{i.15}}</td>
+
+    {% endfor %}
+</table>
+
+<!--------------------end deliverd data--->
+
+{% endblock %}
