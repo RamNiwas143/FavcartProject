@@ -1,0 +1,37 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'admin_navigation.html'%}
+
+<div class="row message py-4 bg-light ">
+
+    <div class="row ms-0 px-5 py-2 bg-light m-4 w-100" style="min-height:80px;">
+        <div class="col-sm-6 border border-1 border-dark">
+            <div class="row  " style="min-height:100px; background:#f7c68b;">
+                <div class="col-sm-3 text-center">
+                    <i class="fa-solid fa-users py-4 text-ocolor" style="font-size:55px;"></i>
+                </div>
+
+                <div class="col-sm-9 py-3">
+                    <b class="fs-5">TOTAL STUDENTS </b> <BR>
+                    <B CLASS="fs-2 text-success">{{scount}}  </B>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 border border-1 border-dark">
+            <div class="row  " style="min-height:100px;background:#b7e7ff;">
+                <div class="col-sm-3 text-center">
+                    <i class="fa-solid fa-tasks text-ocolor py-4" style="font-size:55px;"></i>
+                </div>
+                <div class="col-sm-9 py-3 ">
+                    <b class="fs-5">TOTAL RECRUITERS </b> <BR>
+                    <B CLASS="fs-2 text-success">{{rcount}} </B>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

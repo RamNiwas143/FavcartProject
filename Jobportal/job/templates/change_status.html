@@ -1,0 +1,36 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'admin_navigation.html'%}
+
+<div class="fs-2 text-center "><b>View Pending</b><B style="color:#4DD0E1;" > Recruiter <i class="fa-solid fa-location-dot"></i></B></div>
+<hr>
+
+<form class="container mt-5" method="post">
+    {% csrf_token %}
+    <label><b>Recruiter Name</b></label>
+    <input type="text" class="form-control" name="uname" value="{{recruiter.user.first_name}} {{recruiter.user.last_name}}" />
+    <label><b>Status</b></label>
+    <select class="form-control" name="status" >
+    <option value="Accept" >Accept</option>
+    <option value="Reject" >Reject</option>
+    </select>
+    <input type="submit" VALUE="LOGIN" class="btn btn-primary" style="margin-top:2%;" >
+</form>
+
+{% include 'footer.html' %}
+{% ifequal error "no" %}
+  <script>
+    alert("Status Changed Successfully");
+    window.location=('{% url 'recruiter_panding' %}')
+  </script>
+  {% endifequal %}
+
+  {% ifequal error "yes" %}
+  <script>
+    alert("No Changes try again!");
+  </script>
+  {% endifequal %}
+
+{% endblock %}

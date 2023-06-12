@@ -1,0 +1,50 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'navigation.html'%}
+<style>
+    tr{
+    text-align:center;
+    }
+
+</style>
+<div class="fs-2 text-center "><b>Latest Job</b><B style="color:#4DD0E1;" > List <i class="fa-solid fa-location-dot"></i></B></div>
+<hr>
+<div class="container">
+<table class="table table-hover" id="example">
+    <thead class="shadow">
+    <tr style="background-color:#000080" class="text-light">
+        <th>S.No</th>
+        <th>Company Name</th>
+        <th>Job Title</th>
+        <th>Location</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Action</th>
+    </tr>
+    </thead >
+    <tbody style="background-color:#deb887">
+    {% for i in job %}
+    <tr class="shadow">
+        <b ><td >{{forloop.counter}}</td></b>
+        <b><td >{{i.recruiter.company}} </td></b>
+        <b><td>{{i.title}}</td></b>
+        <b><td>{{i.location}} </td></b>
+        <b><td>{{i.start_date}}</td></b>
+        <b><td>{{i.end_date}}</td></b>
+        <b><td><a href="{% url 'user_login' %}" class="btn btn-success btn-sm" >Login to Apply</a>
+
+        </td></b>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    </div>
+
+
+
+
+
+{% include 'footer.html'%}
+{% endblock %}

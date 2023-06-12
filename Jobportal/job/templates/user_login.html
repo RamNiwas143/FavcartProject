@@ -1,0 +1,76 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'navigation.html'%}
+
+<div class="row bg-light">
+    <div class="fs-2 text-center bg-light mt-4"><b>Student User</b><B style="color:#4DD0E1;"> Login <i
+            class="fa-brands fa-usps"></i> </B></div>
+    <!----- start modal----->
+
+    <!-----end modal----->
+
+    <div class="row  mb-5">
+
+        <div class="col-sm-2 "></div>
+        <div class="col-sm-4 mt-3 pt-4 shadow-lg" style=" border-radius:7% 0% 0%; background: #ffffff;
+background-image: linear-gradient(315deg, #ffffff 0%, #91a6ff 74%)  ;
+ ">
+            <div class="fs-2 text-center mb-4  " style="background:#fcfaed;border-radius:10px;">Login
+                <B style="color:#4DD0E1;"> Here <i class="fa-solid fa-address-card"></i></B></div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <i class="input-group-text"><i class="fa-solid fa-envelope"></i></i>
+                    <input type="text" class="form-control " required name="uname" placeholder="email"></div>
+                <br>
+
+                <div class="input-group">
+                    <i class="input-group-text"><i class="fa-solid fa-lock"></i></i>
+                    <input type="password" class="form-control " required name="pwd" placeholder="password"></div>
+                <br>
+                <input type="submit" class="btn bg-warning text-white w-100 btn1 " value="Login"><br>
+                <p class=" pt-2 text-center text-dark"> Don't have An Account <a href="{% url 'user_signup' %}">Register
+                    Here</a></p><br>
+
+            </form>
+
+        </div>
+        <div class="col-sm-4 mt-3" style="background:#f4e2de;border-radius:0% 0% 7%;">
+            <div class="fs-5 text-center pt-5"><b class="fs-4 text-warning">User</b> <B class="text-bold"> Login form.
+                <img style="max-height:30px;" src="{% static 'images/logo2.jpg' %}"/></B></div>
+            <br>
+            <b class="text-ocolor fs-5 text-center">Online Job Portal</b>
+            A job portal also known as?
+            A job board – also called job site, job portal,
+            job website or employment website – is a website that deals specifically with employment or careers.
+            A job board enables employers to publish job offers for a position to be filled.<br>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+
+
+
+{% include 'footer.html' %}
+
+{% ifequal error "no" %}
+<script>
+    alert("Login Successfully");
+    window.location=('{% url 'user_home' %}')
+
+
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Invalid Login try again!");
+
+
+</script>
+{% endifequal %}
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% load static %}
+<title> Recruiter Login</title>
+{% block body %}
+
+{% include 'navigation.html'%}
+
+<div class="row bg-light">
+    <div class="fs-2 text-center bg-light mt-4"><b>Recruiter</b><B style="color:#4DD0E1;"> Login <i class="fa-brands fa-usps"></i> </B></div>
+
+    <div class="row  mb-5" >
+
+    <div   class="col-sm-4 "></div>
+    <div class="col-sm-4 mt-3 pt-2 shadow-lg " style=" border-radius:5%; background: #ffffff;
+background-image: linear-gradient(315deg, #ffffff 0%, #91a6ff 74%)  ; " >
+            <div class="fs-2 text-center mb-4  " style="background:#fcfaed;border-radius:10px;">Login<B style="color:#4DD0E1;"> Here <i class="fa-solid fa-address-card"></i></B></div>
+        <form method="post">
+            {% csrf_token %}
+     <div class="input-group">
+                    <i class="input-group-text"><i class="fa-solid fa-envelope"></i></i>
+    <input type="text" class="form-control " required name="uname" placeholder="email"> </div><br>
+
+         <div class="input-group">
+                    <i class="input-group-text"><i class="fa-solid fa-lock"></i></i>
+             <input type="password" class="form-control " required name="pwd" placeholder="password"></div><br>
+             <input type="submit" class="btn bg-warning text-white w-100 btn1 " value="Login" ><br>
+            <p class=" pt-2 text-center text-dark"> Don't have An Account <a href="{% url 'recruiter_signup' %}">Register Here</a></p><br>
+
+</form>
+
+    </div>
+
+</div>
+</div>
+
+
+{% include 'footer.html' %}
+{% ifequal error "no" %}
+  <script>
+    alert("Login Successfully");
+    window.location=('{% url 'recruiter_home' %}')
+  </script>
+  {% endifequal %}
+
+  {% ifequal error "yes" %}
+  <script>
+    alert("Invalid Login try again!");
+  </script>
+ {% endifequal %}
+{% ifequal error "not" %}
+  <script>
+    alert("Login status pandding !");
+  </script>
+  {% endifequal %}
+
+{% endblock %}

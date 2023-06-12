@@ -1,0 +1,95 @@
+{% load static %}
+
+<div class="container-fliud ">
+  <footer
+          class="text-center text-lg-start text-white"
+          style="background-color: #1c2331"
+          >
+
+    <section class="">
+      <div class="container text-center text-md-start ">
+        <div class="row ">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 mt-5">
+            <h6 class="text-uppercase fw-bold">Online Job Portal</h6>
+            <div class="col-sm-3 mt-3">
+            <img src="{% static 'images/job2.png' %}" width="100px" height="50px" class="mb-3">
+        </div>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              CareerLinker.com is the most innovative and Second largest
+              online job portal in India. Founded in 2023,
+              over the past decade, CareerLinker.com has become a prominent name in the recruitment industry.
+            </p>
+          </div>
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 mt-5">
+            <h6 class="text-uppercase fw-bold">Our Services</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px "
+                />
+            <p>
+              <a href="#!" class="text-white" style="text-decoration:none"> <i class="fas fa-search mr-3"></i> Jobs Searching</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white"style="text-decoration:none" ><i class="fas fa-user mr-3"></i> Hiring</a>
+            </p>
+            <p>
+              <a href="{% url 'learning'%}" class="text-white"style="text-decoration:none" ><i class="fa-solid fa-user-graduate"></i> Learning</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white" style="text-decoration:none"><i class="fas fa-book mr-3"></i> Certification</a>
+            </p>
+          </div>
+
+          <div class="col-md-4 col-lg-2 col-xl-3 mx-auto mb-4 mt-5">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Useful links</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p><i class="fas fa-home mr-3"></i> Lucknow,Uttar Pradesh.UP</p>
+            <p><i class="fas fa-envelope mr-3"></i> info@ramgoswami.com</p>
+            <p><i class="fas fa-phone mr-3"></i> + 91 6390258680</p>
+            <p><i class="fas fa-print mr-3"></i> + 91 8917033564</p>
+
+
+          </div>
+
+          <div class="col-md-3 col-lg-3 col-xl-2 mx-auto mb-md-0 mb-4 mt-5">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Connect on</h6>
+            <hr
+                class="mb-3 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              <img src="{% static 'images/f1.png' %}" style="height:70px;">
+            </p>
+            <p>
+              <img src="{% static 'images/f2.png' %}" style="height:70px;">
+            </p>
+            <p>
+              <img src="{% static 'images/f3.png' %}" style="height:70px;">
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)"
+         >
+      © 2023 Copyright: | Developed By
+      <a class="text-white" href="{% url 'myportfolio' %}"
+         >Ram Niwas Goswami</a>
+
+    </div>
+
+  </footer>
+
+
+</div>

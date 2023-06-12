@@ -1,0 +1,72 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'user_navigation.html'%}
+<style>
+    tr{
+    text-align:center;
+    }
+</style>
+
+
+
+<div class="row mt-4" ><div class="fs-2 text-center ">Your selected<B class="text-warning"> Job
+ <i class="fa-solid fa-cart-shopping"></i></B></div>
+
+
+
+<div class="col-sm-2"></div>
+<div class="col-sm-8" >
+    <div class="row shadow-lg">
+
+        <div class="col-sm-12 mt-2" >
+            <!-------start card---->
+            <div class="card mb-3 w-100">
+  <div class="row g-0">
+    <div class="col-md-4 ">
+        <img src="{{job.image.url}}" class="img-fluid rounded-start img-thumbnail " style="height:300px;"> <h4 class="text-center mt-2"><b >{{job.recruiter.company}}</b></h4> </div>
+
+
+    <div class="col-md-8">
+      <div class="card-body">
+        <b class="card-title fs-4 ">{{job.title}}</b><br><a href="{% url 'user_latestjobs' %}"> (View all jobs)</a>
+
+
+        <p class="card-text">
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+            <b> Salary : <span class="text-success "> {{job.salary}}/-</span></b>
+            <i class="fa-solid fa-calendar-days"></i>
+            <small class="text-muted">{{job.creationdate}}</small>
+
+          <a href="{% url 'applyforjob' job.id %}" type="submit" class="btn btn-success shadow" > Apply Now</a>
+        </p>
+        <p class="card-text">
+            <b >Start date for apply :</b>
+        <span ><i class="fa-solid fa-calendar-days"></i> {{job.start_date}} ||</span>
+        <b >Last date to apply :</b> <span ><i class="fa-solid fa-calendar-days"></i> {{job.end_date}}</span> </p>
+          <b >Overwiew :</b>
+        <span >{{job.description}}</span><br><br>
+          <b >Required Experience :</b>
+        <span >{{job.experience}}</span><br><br>
+
+        <b >Skills Required :</b>
+        <span >{{job.skills}}</span><br><br>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+            <!-------end card---->
+        </div>
+
+    </div>
+</div>
+<div class="col-sm-2"></div>
+</div>
+
+
+
+{% endblock %}

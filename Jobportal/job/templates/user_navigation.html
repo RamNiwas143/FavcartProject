@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> JobPortal</title>
+    <link href="{% static 'images/logo2.jpg' %}" rel="icon">
+    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet"/>
+    <link href="{% static 'css/all.css'%}" rel="stylesheet"/>
+    <script src="{% static 'js/bootstrap.js'%}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js'%}"></script>
+
+  <style>
+
+.nav-link{
+    color:white #F48FB1;
+    margin-right :5px;
+    border-radius:15px;
+
+ }
+ .nav-link:hover{
+    margin-weight :bold;
+    background-color:white;
+    border-radius:10px;
+
+ }
+ .navbar-brand:hover{
+    color:yellow !important;
+
+ }
+ .ocolor{
+        backgound-color:#fdcc0d;
+ }
+
+  </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="row ">
+        <div class="col-sm-3 ">
+            <img src="{% static 'images/logo2.jpg' %}" width="110px" height="80px" class="mb-3">
+        </div>
+        <div class="col-sm-6 mt-3 text-center ">
+            <div class="fs-2 text-center text-danger"><b>Online Job</b><b style="color:#4DD0E1;"> Portal<i class="fa-brands fa-servicestack text-success"></i></b></div>
+        </div>
+        <div class="col-sm-3 mt-3" style="padding-left:10%;">
+          <span style="font-weight: bold; font-size:20px;">
+        <span><i class="fa-brands fa-twitter text-primary px-2"></i></span>
+        <i class="fa-brands fa-linkedin text-primary px-2"></i>
+        <span><i class="fa-brands fa-instagram text-danger  px-2"></i></span>
+        <span><i class="fa-brands fa-telegram text-primary  px-2"></i></span>
+        </span>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!---start menu---->
+<nav class="navbar navbar-expand-lg sticky-top shadow " id="menu" style="background-color:#4DD0E1">
+    <a class="navbar-brand text-white ps-5 font-weight-bold"
+       style="font-family:'Monotype corsiva'; font-size:15 px;">Job Portal</a>
+    <div class="container-fluid">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'user_home'%}" style="margin-left:280px;"><i class="fa-solid fa-home"></i> Home</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="{% url 'user_latestjobs' %}"><i class="fa-solid fa-users"></i>Job List</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="{% url 'change_passworduser'%}"><i class="fa-solid fa-user-plus"></i> Change Password</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="{% url 'Logout' %}"><i class="fa-solid fa-sign-out"></i> Logout</a>
+            </li>
+            <a class="navbar-brand text-danger  font-weight-bold ps-5"
+           style="font-family:'Monotype corsiva'; font-size:25px;" > Welcome {{request.user.first_name}} {{request.user.last_name}}</a>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<!---end menu---->
+</body>
+</html>

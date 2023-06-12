@@ -1,0 +1,49 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'navigation.html'%}
+
+<div class="row bg-light">
+            <div class="fs-2 text-center bg-light mt-3"><b>Admin</b><B style="color:#4DD0E1;"> Login <i class="fa-brands fa-usps"></i> </B></div>
+
+    <div class="row  mb-5">
+
+    <div   class="col-sm-4 "></div>
+    <div class="col-sm-4 mt-5 pt-4 py-5 shadow-lg" style=" background:#44b09e; border-radius:7% 0% 7%;
+background-image: linear-gradient(315deg, #44b09e 0%, #e0d2c7 74%); " >
+            <div class="fs-2 text-center mb-4  " style="background:#fcfaed;border-radius:10px;">Login<B style="color:#4DD0E1;"> Here <i class="fa-solid fa-address-card"></i></B></div>
+        <form method="post">
+            {% csrf_token %}
+     <div class="input-group">
+                    <i class="input-group-text"><i class="fa-solid fa-user"></i></i>
+    <input type="text" class="form-control " required name="uname" placeholder="Username"> </div><br>
+
+         <div class="input-group">
+                    <i class="input-group-text"><i class="fa-solid fa-lock"></i></i>
+             <input type="password" class="form-control " required name="pwd" placeholder="Password"></div><br>
+             <input type="submit" class="btn bg-warning text-white w-100 btn1 " value="Login" ><br>
+
+</form>
+
+    </div>
+
+</div>
+</div>
+
+
+{% include 'footer.html' %}
+{% ifequal error "no" %}
+  <script>
+    alert("Login Successfully");
+    window.location=('{% url 'admin_home' %}')
+  </script>
+  {% endifequal %}
+
+  {% ifequal error "yes" %}
+  <script>
+    alert("Invalid Login try again!");
+  </script>
+  {% endifequal %}
+
+{% endblock %}

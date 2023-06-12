@@ -1,0 +1,38 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'recruiter_navigation.html'%}
+<style>
+    tr{
+    text-align:center;
+    }
+</style>
+<div class="fs-2 text-center "><b>Manage job</b><B style="color:#4DD0E1;" > Details <i class="fa-solid fa-location-dot"></i></B></div>
+<hr>
+<div class="container">
+<table class="table table-hover" id="example">
+    <thead>
+    <tr style="background-color:#000080" class="text-light">
+        <th>S.No</th>
+        <th>job Title</th>
+        <th>Creation date</th>
+        <th>Action</th>
+    </tr>
+    </thead >
+    <tbody style="background-color:#deb887">
+    {% for i in job %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.title}} </td>
+        <td>{{i.creationdate}}</td>
+        <td><a href="{% url 'edit_jobdetail' i.id %}" class="btn btn-success btn-sm" >Edit </a>
+        | <a href="{% url 'change_status' i.id %}" class="btn btn-danger btn-sm" >Delete </a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    </div>
+
+{% endblock %}

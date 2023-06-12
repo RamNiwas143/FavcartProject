@@ -1,0 +1,139 @@
+{% load static %}
+<title> Recruiter SingUp</title>
+{% block body %}
+
+{% include 'navigation.html'%}
+
+<script>
+  function checkpass()
+  {
+  if(document.signup.pwd.value!=document.signup.cpwd.value)
+  {
+  alert('Password and Repeat Password Field Does not match');
+  document.signup.cpwd.focus();
+  return false;
+  }
+  return true;
+  }
+
+</script>
+<style>
+    .btn:hover{
+        background:#4DD0E1;
+        color:white;
+    }
+
+    .seconddiv{
+    background:white;
+    border-radius:8px;
+    border:1px solid #dedede;
+    }
+
+
+</style>
+
+
+        <div class="row ">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 border border-1 mt-4 mx-4 mb-4 py-3 pb-3 p-5 pb-5 pt-5  rounded shadow-lg">
+                <div class="fs-2 text-center "><b> Recruiter</b><B style="color:#4DD0E1;"> SignUp <i
+                        class="fa-brands fa-usps"></i> </B></div>
+
+                <form onsubmit="return checkpass();" method="post" name="signup" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row mt-4">
+                        <div class="col-sm-6">
+                            <label class="mb-0 mt-2">Enter First Name :</label> <i class="fa-solid fa-user"></i>
+                            <input type="text" name="fname" class="form-control border"
+                                   placeholder="Enter Your First Name"
+                                   title="Enter your Contact No (Only valid No acceptable.)" required/>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="mb-0 mt-2">Enter Last Name :</label> <i class="fa-solid fa-user"></i>
+                            <input type="text" name="lname" class="form-control border"
+                                   placeholder="Enter Your Last Name" title="Enter your valid Email Id" required/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="mb-0 mt-2">Contact No :</label> <i class="fa-solid fa-phone"></i>
+                            <input type="text" name="contact" class="form-control border"
+                                   placeholder="Enter Your Contact No"
+                                   title="Enter your Contact No (Only valid No acceptable.)" required/>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="mb-0 mt-2">Your Email Id :</label> <i class="fa-solid fa-gmail"></i>
+                                <input type="email" name="email" class="form-control border"
+                                       placeholder="Enter Your Email Id" title="Enter your valid Email Id" required/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="mb-0 mt-2">Enter Password :</label> <i class="fa-solid fa-key"></i>
+                            <input type="password" name="pwd" class="form-control border"
+                                   placeholder="Enter Your password.."
+                                   title="Enter your password (Only valid password acceptable.)" required/>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <label class="mb-0 mt-2">Enter Confirm Password :</label> <i class="fa-solid fa-key"></i>
+                            <input type="password" name="cpwd" class="form-control border"
+                                   placeholder="Enter Your Confirm Password" title="Enter your valid Confirm Password"
+                                   required/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <br>
+                            <label class="mb-0 form-control">Gender:
+                            <input type="radio" name="gender" value="Male" class="border"> Male
+                            <input type="radio" name="gender" value="Female" class="border"> Female
+                            </label> <i class="fa-solid fa-gender"></i>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <label class="mb-0 mt-2">Choose Image File :</label> <i class="fa-solid fa-phone"></i>
+                            <input class="form-control form-control-sm border" name="image" type="file" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label class="mb-0 mt-2">Company name :</label> <i class="fa-solid fa-key"></i>
+                            <input type="text" name="company" class="form-control border"
+                                   placeholder="Enter Company name"
+                                   title="Enter your password (Only valid password acceptable.)" required/>
+
+                        </div>
+                    <div class="row">
+                        <div class="col-sm-12 mt-4 mb-0 ">
+                            <input type="submit" class="btn text-dark border border-1 border-dark w-100 ms-2" name="submit" value="SignUp"/>
+                        </div>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    <div class="col-sm-2"></div>
+
+{% include 'footer.html' %}
+{% ifequal error "no" %}
+  <script>
+    alert("Signup Successfully");
+    window.location=('{% url 'recruiter_login' %}')
+  </script>
+  {% endifequal %}
+
+  {% ifequal error "yes" %}
+
+  <script>
+    alert("Sumthing Went Wrong try again!");
+  </script>
+
+  {% endifequal %}
+{% endblock %}
